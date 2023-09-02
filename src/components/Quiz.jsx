@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import Options from './Options.jsx'
 function Quiz({ question, dispatch, answer }) {
   return (
-    <div>
+    <div className="question">
       <h4>{question.question}</h4>
 
       <div className="options">
