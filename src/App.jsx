@@ -84,15 +84,19 @@ function reducer(state, action) {
       throw new Error('Unhandled action type: ' + action.type)
   }
 }
-
 function App() {
   const [
     { questions, status, index, answer, score, highscore, remainingTime },
     dispatch,
   ] = useReducer(reducer, initialState)
 
+  console.log(questions)
   const numberOfQuestions = questions.length
-  const maxScore = questions.reduce((prev, cur) => prev + cur.points, 0)
+  // const maxScore = questions.reduce((prev, cur) => prev + cur.points, 0)
+
+  const maxScore = Array.isArray(questions)
+    ? questions.reduce((prev, cur) => prev + cur.points, 0)
+    : 0
 
   useEffect(() => {
     fetch(import.meta.env.VITE_API_URL + '/questions')
