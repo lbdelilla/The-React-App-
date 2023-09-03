@@ -90,7 +90,6 @@ function App() {
     dispatch,
   ] = useReducer(reducer, initialState)
 
-  console.log(questions)
   const numberOfQuestions = questions.length
   // const maxScore = questions.reduce((prev, cur) => prev + cur.points, 0)
 
