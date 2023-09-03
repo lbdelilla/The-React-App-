@@ -95,7 +95,7 @@ function App() {
   const maxScore = questions.reduce((prev, cur) => prev + cur.points, 0)
 
   useEffect(() => {
-    fetch('http://localhost:5001/api/v1/questions')
+    fetch(import.meta.env.VITE_API_URL + '/questions')
       .then((res) => res.json())
       .then((data) => dispatch({ type: 'dataReceived', payload: data }))
       // eslint-disable-next-line no-unused-vars
